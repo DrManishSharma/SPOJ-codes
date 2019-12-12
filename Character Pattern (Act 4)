@@ -1,0 +1,53 @@
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    void printline(int c, int w)
+    {
+        for (int i=0; i < ((w+1)*c + 1); i++)
+            {
+                cout << "*";
+            }
+        cout << endl;
+    };
+     
+    int main()
+    {
+        int t,l,c,h,w;
+        cin >> t;
+        int intArray[t][1][1][1][4];
+        for (int i=0; i<t; i++)
+        {
+            cin >> intArray[i][0][0][0][0] >> intArray[i][0][0][0][1] >> intArray[i][0][0][0][2] >> intArray[i][0][0][0][3];
+            //int intArray[i][0][0];
+         }
+        for (int i=0; i<t; i++)
+        {
+            l = intArray[i][0][0][0][0];
+            c = intArray[i][0][0][0][1];
+            h = intArray[i][0][0][0][2];
+            w = intArray[i][0][0][0][3];
+     
+            printline(c, w);
+            for (int s=0; s < l; s++)
+            {
+                for (int r=0; r < h; r++)
+                {
+                    cout << "*" ;
+                    for(int q=0; q < c; q++)
+                    {
+                        for (int p=0; p<w; p++)
+                        {
+                            cout << "." ;
+                        }
+                        cout << "*";
+                    }
+                    cout<<endl;
+                }
+                //cout<<endl;
+                printline(c, w);
+            }
+            cout << endl;
+        }
+     
+    return 0;
+    } 
