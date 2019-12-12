@@ -1,0 +1,39 @@
+    #include <iostream>
+    using namespace std;
+     
+    int main()
+    {
+        int n, m;
+        cin>>n;
+        int ArrayS[n];
+        for(int i=0;i<n;i++){
+            cin>>ArrayS[i];
+        }
+        cin>>m;
+        int ArrayQ[m];
+        for(int j=0;j<m;j++){
+            cin>>ArrayQ[j];
+        }
+        //comparison
+        int k=0,l=0;
+        bool BelongToQ = false;
+        for(k=0;k<n;k++){
+            for(l=0;l<m;l++){
+                if(ArrayS[k] < ArrayQ[l])
+                    break;
+                if(ArrayS[k]==ArrayQ[l]){
+                    BelongToQ = true;
+                    //cout<<"Belong to True = true, "<< "K = "<< k <<" L = "<< l<<endl;
+                     cout<<ArrayS[k]<<" ";
+                    break;
+                }
+            }
+            /*if(BelongToQ == true){
+                //out<<"Belong to True = true, "<<
+                cout<<ArrayS[k]<<" ";
+            }*/
+            BelongToQ = false;
+        }
+     
+        return 0;
+    } 
