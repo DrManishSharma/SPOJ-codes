@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int n, m;
+    cin>>n;
+    int ArrayS[n];
+    for(int i=0;i<n;i++){
+        cin>>ArrayS[i];
+    }
+    cin>>m;
+    int ArrayQ[m];
+    for(int j=0;j<m;j++){
+        cin>>ArrayQ[j];
+    }
+    //comparison
+    
+        int p; if(m<n) p=m;else p=n;
+        for(int i =0;i<p;i++){
+            if(ArrayS[i]==ArrayQ[i])
+                cout<<i+1<<" ";
+        }
+    return 0;
+}
