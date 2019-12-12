@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+  int TestCases;
+  cin>>TestCases;
+  int infoArray[TestCases][1][1][3];
+  for (int i =0;i<TestCases;i++){
+    cin>>infoArray[i][0][0][0]>>infoArray[i][0][0][1]>>infoArray[i][0][0][2];
+  }
+  int n, x, y;
+  for (int i =0;i<TestCases;i++){
+     n = infoArray[i][0][0][0];
+     x = infoArray[i][0][0][1];
+     y = infoArray[i][0][0][2];
+     for (int j =x;j<n;j++){
+        if(j%x ==0 && j%y !=0){
+            cout<<j<<" ";
+        }
+     }
+     cout<<endl;
+  }
+ 
+   return 0;
+}
