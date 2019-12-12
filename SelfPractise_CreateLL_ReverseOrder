@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node *link;
+};
+struct Node *head = NULL;
+void Insert(int x)
+{
+    Node *temp = new Node();
+    temp->link = head;
+    temp->data = x;
+    head = temp;
+};
+void Print()
+{
+    cout << "The list is:" << endl;
+    Node *temp = new Node();
+    temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->link;
+    }
+};
+
+int main()
+{
+    int length, value;
+    //Node *temp = new Node();
+    cout << "How long the link list should be" << endl;
+    cin >> length;
+    for (int i =0; i<length; i++)
+    {
+        cout << "Enter the "<< i+1 << " value to be inserted in the list" << endl;
+        cin >> value;
+        Insert(value);
+    }
+    Print();
+
+    //create a linked list which stores the values 2,4,9,7,1
+    //print it in the reverse order
+    //inserting a value v at nth position in linked list
+    return 0;
+}
