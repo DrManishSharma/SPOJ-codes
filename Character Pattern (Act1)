@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+int main()
+{
+    int t,l,c;
+    cin >> t;
+    int intArray[t][1][2];
+    for (int i=0; i<t; i++)
+    {
+        cin >> intArray[i][0][0] >> intArray[i][0][1];
+        //int intArray[i][0][0];
+     }
+    for (int i=0; i<t; i++)
+    {
+        l = intArray[i][0][0];
+        c = intArray[i][0][1];
+        //char char2DArray[l][c];
+        for (int i=0; i<l; i++)
+        {
+            if((i % 2) == 0)
+            {
+                for (int  j=0; j<c; j++)
+                {
+                    if((j % 2) == 0)
+                    {
+                        cout << "*";
+                    }
+                    else
+                        cout << ".";
+                }
+                cout << endl;
+            }
+            else
+            {
+                for (int  j=0; j<c; j++)
+                {
+                    if((j % 2) == 0)
+                    {
+                        cout << ".";
+                    }
+                    else
+                        cout << "*";
+                }
+                cout << endl;
+            }
+        }
+        cout<<endl;
+        //cout << "l = " << l << "c = " << c << endl;
+    }
+return 0;
+}
