@@ -1,0 +1,20 @@
+    #include <iostream>
+    using namespace std;
+     
+    int main() {
+     
+    	int number=0;
+    	while (number!= 42)
+    	{
+    		//cout<< " ";
+    		cin>>number;
+    		cout << number << endl;
+    		if(number ==42)
+    		{
+    			return 0;
+    		}
+     
+    	};
+    	return 0;
+    }
+     
