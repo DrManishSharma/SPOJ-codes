@@ -1,0 +1,115 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node *link;
+};
+struct Node *head = NULL;
+void InsertInLinkedList(int x)
+{
+    Node *temp = new Node();
+    temp->link = head;
+    temp->data = x;
+    head = temp;
+};
+void PrintLinkList()
+{
+    Node *temp = head;
+    while (temp!= NULL)
+    {
+        cout << " " << temp->data;
+        temp = temp->link;
+    }
+};
+void Counter()
+{
+    Node *temp1 = head;
+    int counter = 0;
+    while (temp1 != NULL)
+    {
+        counter += 1;
+        temp1= temp1->link;
+    }
+    cout << "Counter = " << counter << endl;
+};
+bool CheckIfPositionIsCorrect(int position)
+{
+    Node *temp1 = new Node();
+    temp1->link = head;
+    int counter = 0;
+    while (temp1 != NULL)
+    {
+        counter += 1;
+        temp1= temp1->link;
+    }
+    if (position >= 1 && position <= counter+1)
+        return true;
+    else
+    {
+        return false;
+    }
+    delete(temp1);
+};
+void InsertAtGivenPosition(int value, int position)
+{
+    Node *temp1 = new Node();
+    Node *temp2 = head;
+    temp1->link = NULL;
+    temp1->data = value;
+    temp1->link = head;
+    bool result = CheckIfPositionIsCorrect(position);
+    if (result == true)
+    {
+        if (position == 1)
+        {
+            //temp->link = head->link
+            head = temp1;
+
+        }
+        else
+        {
+            for ( int i = 0; i < position-2; i++)
+            {
+                  temp2 = temp2->link;
+
+            }
+
+            temp1->link = temp2->link;
+            temp2->link = temp1;
+
+            Counter();
+
+        }
+    }
+    else
+        cout<< "Position is out of range " << endl;
+        /*delete(temp1);
+        delete(temp2);*/
+};
+/*void ReverseLinkedListIterative()
+{
+    N
+};*/
+int main()
+{
+    int length, value, position, new_value;
+    cout << "length of the link list = " << endl;
+    cin >> length;
+    for (int i=0; i < length; i++)
+    {
+        cout << "Enter the "<< i+1 <<" value" << endl;
+        cin >> value;
+        InsertInLinkedList(value);
+    }
+    PrintLinkList();
+    cout << "At what position a new value should be inserted" << endl;
+    cin >> position;
+    cout << "what is new value" << endl;
+    cin >> new_value;
+    InsertAtGivenPosition(new_value, position);
+    PrintLinkList();
+    return 0;
+}
