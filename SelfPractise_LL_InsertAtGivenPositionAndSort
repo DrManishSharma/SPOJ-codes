@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node *link;
+};
+struct Node *head = NULL;
+void Print()
+{
+    //cout <<"I am here"<<endl;
+    Node *temp = head;
+    while ( temp != NULL)
+    {
+        cout << " " << temp->data;
+        temp = temp->link;
+    }
+    cout<<" "<<endl;
+};
+void Insert(int value, int position)
+{
+    Node *temp = new Node();
+    //temp = NULL;
+    temp->data = value;
+    temp->link = head;
+
+    if(position == 1)
+    {
+        head = temp;
+        //Print();
+    }
+    else
+    {
+         Node *temp2 = head;
+         //temp2 = temp2->link;
+         for(int i = 0; i < position-2; i++)
+        {
+              temp2 = temp2->link;
+        }
+        temp->link = temp2->link;
+        temp2->link = temp;
+    }
+};
+void Sort()
+{
+    Node *curr = head;
+    Node *next = head;
+    next = next->link;
+    while(next != NULL)
+    {
+        if(curr->data == next->data)
+        {
+            curr->link = next->link;
+            Node * to_del = next;
+            if (curr->link != NULL)
+            {
+                 next = next->link;
+                 delete to_del;
+            }
+            else
+            {
+                break;
+                delete to_del;
+            }
+        }
+        curr = curr->link;
+        next = next->link;
+    }
+};
+
+int main()
+{
+   //Make a linked list
+   Insert(1,1);
+   Insert(1,2);
+   Insert(2,3);
+   Insert(3,4);
+   Insert(3,5);
+   Print();
+   Sort();
+   Print();
+
+return 0;
+}
